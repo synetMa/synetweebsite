@@ -1,7 +1,7 @@
 import Formations from '@/modules/formations/ui/views/formations-view'
 import { HydrateClient, prefetch, trpc } from '@/trpc/server'
 
-export default async function FormationsPage() {
+const page =  () => {
   prefetch(
     trpc.formations.getFormations.queryOptions({
       page: '1',
@@ -27,3 +27,4 @@ export default async function FormationsPage() {
     </HydrateClient>
   )
 }
+export default page

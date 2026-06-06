@@ -2,6 +2,7 @@ import { Formation } from '@/modules/formations/ui/views/formation-view'
 import { HydrateClient, prefetch, trpc } from '@/trpc/server'
 import type { Metadata } from 'next'
 
+
 interface Props {
   params: Promise<{ slug: string }>
 }
@@ -14,7 +15,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function FormationDetailPage({ params }: Props) {
+
+
+const page = async ({ params }: Props) => {
   const { slug } = await params
   prefetch(trpc.formations.getFormation.queryOptions({ slug }))
 
@@ -26,3 +29,5 @@ export default async function FormationDetailPage({ params }: Props) {
     </HydrateClient>
   )
 }
+
+export default page
