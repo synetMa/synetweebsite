@@ -48,7 +48,7 @@ const Hero = () => {
 
             </div>
             <motion.div
-                className="pointer-events-none absolute bottom-20 left-100 h-[700px] w-[280px] rounded-full"
+                className="pointer-events-none absolute bottom-20 left-80 h-175 w-70 rounded-full"
                 animate={{ y: [0, -18, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -56,25 +56,24 @@ const Hero = () => {
             </motion.div>
 
             <motion.div
-                className="pointer-events-none absolute -bottom-100 right-100 h-[700px] w-[280px] rounded-full z-5"
+                className="pointer-events-none absolute -bottom-100 right-100 h-175 w-70 rounded-full z-5"
                 animate={{ y: [0, -18, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
             >
                 {macbook && <Image src={macbook.src} alt="Macbook" width={700} height={700} />}
             </motion.div>
-            <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 py-30 text-center   ">
-
+            <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 py-30 text-center mb-32 gap-y-5 ">
                 <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-gray-100/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-stone-500">
                     <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
                     {SITE_CONFIG.tagline}
                 </div>
 
 
-                <h1 className="font-bricolage  text-7xl max-w-lg font-bold leading-[1.08] tracking-tight text-stone-900 md:text-8xl ">
+                <h1 className="font-bricolage  text-7xl max-w-lg font-bold leading-[1.08] tracking-tight text-stone-900 md:text-8xl leading-0.9 ">
                     Bienvenue sur{" "}
                     <span className="relative inline-block text-blue-500 ">
                         {SITE_CONFIG.name.toLowerCase()}
-                        <span className="absolute bottom-0.5 left-0 right-0 h-[3px] rounded-full " >
+                        <span className="absolute bottom-0.5 left-0 right-0 h-0.75 rounded-full " >
                             <Image src={arrow.src} alt="Folder" width={700} height={700} className="h-3" />
                         </span>
                     </span>
