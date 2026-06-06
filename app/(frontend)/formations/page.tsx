@@ -1,7 +1,8 @@
 import Formations from '@/modules/formations/ui/views/formations-view'
 import { HydrateClient, prefetch, trpc } from '@/trpc/server'
+import { Suspense } from 'react'
 
-const page =  () => {
+const page = () => {
   prefetch(
     trpc.formations.getFormations.queryOptions({
       page: '1',
@@ -22,7 +23,9 @@ const page =  () => {
             professionnel, nos cours couvrent un large éventail de sujets.
           </p>
         </div>
-        <Formations />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Formations />
+        </Suspense>
       </main>
     </HydrateClient>
   )
