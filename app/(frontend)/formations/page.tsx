@@ -27,6 +27,7 @@ const page = () => {
           <Formations />
         </Suspense>
       </main>
+      
     </HydrateClient>
   )
 }

@@ -91,7 +91,7 @@ export function InscriptionForm() {
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
       <form onSubmit={handleSubmit} className="lg:col-span-2">
         <FieldGroup>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <Field>
               <FieldLabel htmlFor="firstName">Prénom</FieldLabel>
               <Input
