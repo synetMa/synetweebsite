@@ -94,6 +94,13 @@ export default buildConfig({
   },
   collections: [Users, Media, Professors, Formations, Registrations, Reviews],
   editor: lexicalEditor({
+    admin: {
+      hideGutter: true
+    },
+    upload: {
+      collections: ['media'],
+    },  
+    
   }),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

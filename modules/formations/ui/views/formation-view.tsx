@@ -59,10 +59,6 @@ export const Formation = ({ slug }: { slug: string }) => {
     formation.professor && typeof formation.professor === 'object'
       ? (formation.professor as ProfessorDocument)
       : null
-  const imageUrl =
-    typeof formation.image === 'object' && formation.image?.url
-      ? formation.image.url
-      : null
 
   const infoRows = [
     { label: 'Titre', value: formation.name },
@@ -92,10 +88,10 @@ export const Formation = ({ slug }: { slug: string }) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <div className="lg:col-span-3 space-y-6">
-          {imageUrl && (
+          {formation.image.url && (
             <div className="overflow-hidden rounded-lg border border-gray-100 shadow-sm">
               <Image
-                src={imageUrl}
+                src={formation.image.url}
                 alt={formation.name}
                 width={1280}
                 height={720}
@@ -104,7 +100,7 @@ export const Formation = ({ slug }: { slug: string }) => {
             </div>
           )}
           {professor && <ProfessorCard professor={professor} />}
-          <div className="prose prose-gray max-w-none">
+          <div className="prose prose-gray prose-lg max-w-none dark:prose-invert">
             <RichText data={formation.description} />
           </div>
           <FormationReviews formationId={formation.id} />

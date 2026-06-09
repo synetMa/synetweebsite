@@ -37,13 +37,7 @@ export const formationsRouter = createTRPCRouter({
       });
 
       const doc = result.docs[0] ?? null;
-      if (!doc) {
-        throw new TRPCError({
-          code: 'NOT_FOUND',
-          message: 'Formation introuvable',
-        });
-      }
-
+      
       return { doc };
     }),
 });

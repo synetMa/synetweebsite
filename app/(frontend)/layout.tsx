@@ -7,7 +7,7 @@ import { SITE_CONFIG } from '@/lib/siteConfig'
 import type { Metadata } from 'next'
 import { Bricolage_Grotesque as Bricolage } from 'next/font/google'
 import '../globals.css'
-import './styles.css'
+// import './styles.css'
 
 export const metadata: Metadata = {
   title: {
