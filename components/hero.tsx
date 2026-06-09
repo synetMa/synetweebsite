@@ -48,7 +48,7 @@ const Hero = () => {
 
             </div>
             <motion.div
-                className="pointer-events-none absolute bottom-20 left-80 h-175 w-70 rounded-full"
+                className="hidden md:block pointer-events-none absolute bottom-20 left-80 h-175 w-70 rounded-full"
                 animate={{ y: [0, -18, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -56,7 +56,7 @@ const Hero = () => {
             </motion.div>
 
             <motion.div
-                className="pointer-events-none absolute -bottom-100 right-100 h-175 w-70 rounded-full z-5"
+                className="hidden md:block pointer-events-none absolute -bottom-100 right-100 h-175 w-70 rounded-full z-5"
                 animate={{ y: [0, -18, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
             >

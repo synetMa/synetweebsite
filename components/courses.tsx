@@ -25,7 +25,7 @@ const Courses = () => {
   return (
     <section className="relative pt-12 border-b border-gray-100 overflow-hidden bg-white">
       <motion.div
-        className="pointer-events-none absolute top-40 right-30 h-[200px] w-[280px] rounded-full"
+        className="pointer-events-none absolute top-40 right-30  hidden md:block h-[200px] w-[280px] rounded-full"
         initial={{ y: 0 }}
         animate={{ y: [-18, 18, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
@@ -33,7 +33,7 @@ const Courses = () => {
         <Image src={Ipad.src} alt="" width={740} height={550} aria-hidden />
       </motion.div>
       <motion.div
-        className="pointer-events-none absolute bottom-10 left-10 h-[200px] w-[280px] rounded-full"
+        className="pointer-events-none absolute bottom-10 left-10 hidden md:block h-[200px] w-[280px] rounded-full"
         initial={{ y: 0 }}
         animate={{ y: [-18, 18, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
