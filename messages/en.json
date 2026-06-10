@@ -1,0 +1,28 @@
+{
+  "Navbar": {
+    "formations": "Courses",
+    "companies": "For Businesses",
+    "about": "About Us",
+    "blog": "Blog",
+    "contact": "Contact",
+    "register": "Register",
+    "menu": "Navigation Menu",
+    "desc": "Navigation links for SYNET",
+    "open": "Open Menu"
+  },
+  "Hero": {
+    "badge": "IT Training Center in Casablanca",
+    "title1": "Welcome to",
+    "title2": "synet",
+    "description": "Get trained in cybersecurity, networking, Excel, Power BI, or web development — with recognized certifications and career placement support.",
+    "cta_discover": "Discover Courses",
+    "cta_more": "Learn More",
+    "trusted": "Trusted by"
+  },
+  "Stats": {
+    "experience": "Years of Experience",
+    "graduates": "Trained Graduates",
+    "placement": "Employment Rate",
+    "partners": "Partner Companies"
+  }
+}

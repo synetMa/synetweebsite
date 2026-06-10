@@ -1,6 +1,6 @@
 'use client'
-// import { Layers2, Share2, ShieldBan, SquareCode } from 'lucide-react'
-import Link from 'next/link'
+
+import { Link } from '@/i18n/routing'
 import { MessageCircle } from 'lucide-react'
 import { SITE_CONFIG, WA_LINK } from '@/lib/siteConfig'
 import { Avatar, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarImage } from './ui/avatar'
@@ -9,6 +9,7 @@ import macbook from '../public/iMac.png'
 import arrow from '../public/arrow.png'
 import Image from 'next/image'
 import { motion } from "motion/react"
+import { useTranslations } from 'next-intl'
 
 const avatars = [
     {
@@ -42,11 +43,14 @@ const avatars = [
 ]
 
 const Hero = () => {
-    return (
-        <section className="relative overflow-hidden" >
-            <div className="pointer-events-none absolute -left-90 translate-x-1/2 blur-3xl -top-20 size-120 rounded-full bg-sky-700/10 " >
+    const t = useTranslations('Hero')
 
-            </div>
+    return (
+        <section className="relative overflow-hidden bg-background pt-16" >
+            {/* Background Blur */}
+            <div className="pointer-events-none absolute -left-90 translate-x-1/2 blur-3xl -top-20 size-120 rounded-full bg-blue-500/10 dark:bg-blue-500/5" />
+            <div className="pointer-events-none absolute right-0 translate-x-1/3 blur-3xl top-40 size-100 rounded-full bg-purple-500/10 dark:bg-purple-500/5" />
+
             <motion.div
                 className="hidden md:block pointer-events-none absolute bottom-20 left-80 h-175 w-70 rounded-full"
                 animate={{ y: [0, -18, 0] }}
@@ -62,101 +66,67 @@ const Hero = () => {
             >
                 {macbook && <Image src={macbook.src} alt="Macbook" width={700} height={700} />}
             </motion.div>
-            <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 py-30 text-center mb-32 gap-y-5 ">
-                <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-gray-100/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-stone-500">
-                    <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-                    {SITE_CONFIG.tagline}
+
+            <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 py-20 text-center mb-16 gap-y-6">
+                <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse" />
+                    {t('badge')}
                 </div>
 
-
-                <h1 className="font-bricolage  text-7xl max-w-lg font-bold leading-[1.08] tracking-tight text-stone-900 md:text-8xl leading-0.9 ">
-                    Bienvenue sur{" "}
-                    <span className="relative inline-block text-blue-500 ">
-                        {SITE_CONFIG.name.toLowerCase()}
-                        <span className="absolute bottom-0.5 left-0 right-0 h-0.75 rounded-full " >
-                            <Image src={arrow.src} alt="Folder" width={700} height={700} className="h-3" />
+                <h1 className="font-bricolage text-5xl md:text-7xl max-w-xl font-bold leading-[1.1] tracking-tight text-foreground">
+                    {t('title1')}{" "}
+                    <span className="relative inline-block text-blue-600 dark:text-blue-400">
+                        {t('title2')}
+                        <span className="absolute bottom-0.5 left-0 right-0 h-1 rounded-full overflow-hidden" >
+                            <Image src={arrow.src} alt="Arrow decoration" width={700} height={700} className="h-3 w-full object-cover opacity-80" />
                         </span>
                     </span>
                 </h1>
 
-                <p className=" max-w-[460px] text-[18px] leading-relaxed text-stone-500">
-                    Formez-vous en cybersécurité, réseaux, Excel, Power BI ou développement web — avec des certifications reconnues et un accompagnement à l&apos;emploi.
+                <p className="max-w-[500px] text-lg leading-relaxed text-muted-foreground">
+                    {t('description')}
                 </p>
 
-                <AvatarGroup className="mb-10" >
+                <AvatarGroup className="mb-4" >
                     {avatars.map((avatar) => (
-                        <Avatar key={avatar.name} size="lg">
+                        <Avatar key={avatar.name} size="lg" className="border-2 border-background shadow-sm">
                             <AvatarImage
                                 src={avatar.imageUrl}
                                 alt={avatar.name}
-                                className=""
                             />
                             <AvatarFallback>{avatar.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                         </Avatar>
                     ))}
-                    <AvatarGroupCount>+7</AvatarGroupCount>
+                    <AvatarGroupCount className="border-2 border-background font-semibold text-xs">+7</AvatarGroupCount>
                 </AvatarGroup>
 
                 {/* CTAs */}
-                <div className="mb-12 flex flex-wrap items-center justify-center gap-3">
+                <div className="flex flex-wrap items-center justify-center gap-3">
                     <Link
                         href="/formations"
-                        className="inline-flex items-center gap-2 rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-[#f6f4f2] transition-all hover:-translate-y-px hover:bg-stone-700"
+                        className="inline-flex items-center gap-2 rounded-full bg-primary hover:bg-primary/90 px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-md"
                     >
-                        Découvrir les formations
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        {t('cta_discover')}
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="rtl:rotate-180">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                     </Link>
                     <Link
                         href="/about"
-                        className="inline-flex items-center gap-2 rounded-full border border-black/15 px-6 py-3 text-sm dark:bg-white font-medium transition-all hover:-translate-y-px hover:border-black/25 text-black bg-gray-100"
+                        className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/40 hover:bg-muted/80 px-6 py-3 text-sm font-semibold text-foreground transition-all hover:-translate-y-0.5"
                     >
-                        En savoir plus
+                        {t('cta_more')}
                     </Link>
                     <a
                         href={WA_LINK}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full bg-green-600 px-6 py-3 text-sm font-medium text-white transition-all hover:-translate-y-px hover:bg-green-700"
+                        className="inline-flex items-center gap-2 rounded-full bg-green-600 hover:bg-green-700 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-md"
                     >
-                        <MessageCircle className="size-4" />
+                        <MessageCircle className="size-4 fill-current text-white" />
                         WhatsApp
                     </a>
                 </div>
-
-                {/* Stats */}
-                {/* <div className="mb-12 flex items-center justify-center">
-                    {stats.map((stat, i) => (
-                        <div key={stat.label} className="flex items-center">
-                            <div className="text-center">
-                                <div className="font-bricolage text-xl font-bold tracking-tight text-stone-900">
-                                    {stat.number}
-                                </div>
-                                <div className="mt-0.5 text-xs text-stone-400">{stat.label}</div>
-                            </div>
-                            {i < stats.length - 1 && (
-                                <div className="mx-7 h-8 w-px bg-black/10" />
-                            )}
-                        </div>
-                    ))}
-                </div> */}
-
-                {/* Course pills */}
-                {/* <div className="flex flex-wrap justify-center gap-2">
-                    {courses.map((course) => (
-                        <div
-                            key={course.label}
-                            className={cn("flex items-center gap-2 rounded-full border border-black/8 bg-white/60 px-4 py-1.5 text-sm font-medium text-stone-600", course.bg)}
-                        >
-                            <span className={`flex h-5 w-5 items-center justify-center rounded  text-[10px]`}>
-                                {course.icon}
-                            </span>
-                            {course.label}
-                        </div>
-                    ))}
-                </div> */}
-
             </div>
         </section>
     )

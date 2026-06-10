@@ -1,0 +1,28 @@
+{
+  "Navbar": {
+    "formations": "Formations",
+    "companies": "Entreprises",
+    "about": "À propos",
+    "blog": "Blog",
+    "contact": "Contact",
+    "register": "S'inscrire",
+    "menu": "Menu de navigation",
+    "desc": "Liens de navigation pour le site SYNET",
+    "open": "Ouvrir le menu"
+  },
+  "Hero": {
+    "badge": "Centre de formation IT à Casablanca",
+    "title1": "Bienvenue sur",
+    "title2": "synet",
+    "description": "Formez-vous en cybersécurité, réseaux, Excel, Power BI ou développement web — avec des certifications reconnues et un accompagnement à l'emploi.",
+    "cta_discover": "Découvrir les formations",
+    "cta_more": "En savoir plus",
+    "trusted": "Ils nous font confiance"
+  },
+  "Stats": {
+    "experience": "Années d'expérience",
+    "graduates": "Diplômés formés",
+    "placement": "Taux d'insertion",
+    "partners": "Entreprises partenaires"
+  }
+}
